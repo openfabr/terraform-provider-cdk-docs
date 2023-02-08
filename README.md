@@ -27,3 +27,7 @@ Source Markdown docs are in each provider repo. The batch converter is run again
 - when ready merge into main (specific workflow tbd)
 - TODO: GH acion to generate site (using MKdocs)
 - same process for _updating_ docs.
+
+## License
+
+[LICENSE](./LICENSE)
