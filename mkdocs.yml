@@ -1,0 +1,76 @@
+site_name: Terraform Provider Docs for CDK TF
+site_description: >-
+  Terraform Provider docs with the HCL code converted to CDK TF in TypeScript, Python, Java, and CSharp.
+site_url: https://terraform-provider-cdk-docs.github.io/terraform-provider-cdk-docs
+copyright: Content Copyright (c) HashiCorp, Inc.
+repo_url: https://github.com/openfabr/terraform-provider-cdk-docs
+repo_name: openfabr/terraform-provider-cdk-docs
+docs_dir: website
+theme:
+  name: material # mkdocs, readthedocs 
+  #logo: assets/openfabr-logo-600x500-invert.png
+  #logo: assets/logo1-fabr-logo-small-white.png
+  #favicon: assets/favicon.png
+  
+  icon:
+    repo: fontawesome/brands/github
+
+  features:
+  - content.code.annotate
+  - content.tooltips
+  - navigation.expand
+  - navigation.tracking
+  - search.highlight
+  - search.share
+  - search.suggest
+
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+extra_css:
+  - stylesheets/extra.css
+extra:
+  version:
+    provider: mike
+  homepage: /
+  social:
+    #- icon: fontawesome/brands/discord
+    #  link: https://discord.com/channels/1039810916625162260/1039819988296552510
+    - icon: fontawesome/brands/github
+      link: https://github.com/openfabr/terraform-provider-cdk-docs
+  analytics:
+    #provider: google
+    #property: G-J095VMTQH7
+plugins:
+  - search
+  - minify:
+      minify_html: true
+  - social
+
+markdown_extensions:
+  - def_list
+  - attr_list
+  - md_in_html
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+
+# Page tree
+#nav:
+#  - Home: index.html.markdown
