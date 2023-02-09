@@ -5,12 +5,12 @@ This repo contains Terrform Provider CDK docs for TypeScript, Python, Java, and 
 ## Repo structure conventions
 
 - website-docs
-  - <provider-repo-name1>
+  - provider-repo-name1
     - typescript
     - python
     - java
     - csharp
-  - <provider-repo-name2>
+  - provider-repo-name2
     - typescript
     - python
     - java
