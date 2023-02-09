@@ -5,11 +5,13 @@ site_url: https://terraform-provider-cdk-docs.github.io/terraform-provider-cdk-d
 copyright: HarshiCorp
 repo_url: https://github.com/openfabr/terraform-provider-cdk-docs
 repo_name: openfabr/terraform-provider-cdk-docs
+docs_dir: website
 theme:
   name: material # mkdocs, readthedocs 
-  logo: assets/openfabr-logo-600x500-invert.png
+  #logo: assets/openfabr-logo-600x500-invert.png
   #logo: assets/logo1-fabr-logo-small-white.png
-  favicon: assets/favicon.png
+  #favicon: assets/favicon.png
+  
   icon:
     repo: fontawesome/brands/github
 
