@@ -2,7 +2,7 @@ site_name: Terraform Provider Docs for CDK TF
 site_description: >-
   Terraform Provider docs with the HCL code converted to CDK TF in TypeScript, Python, Java, and CSharp.
 site_url: https://terraform-provider-cdk-docs.github.io/terraform-provider-cdk-docs
-copyright: HarshiCorp
+copyright: Content Copyright (c) HashiCorp, Inc.
 repo_url: https://github.com/openfabr/terraform-provider-cdk-docs
 repo_name: openfabr/terraform-provider-cdk-docs
 docs_dir: website
@@ -20,7 +20,7 @@ theme:
   - content.tooltips
   - navigation.expand
   - navigation.tracking
-      - search.highlight
+  - search.highlight
   - search.share
   - search.suggest
 
@@ -43,15 +43,15 @@ extra_css:
 extra:
   version:
     provider: mike
-  homepage: /cdf/
+  homepage: /
   social:
-    - icon: fontawesome/brands/discord
-      link: https://discord.com/channels/1039810916625162260/1039819988296552510
+    #- icon: fontawesome/brands/discord
+    #  link: https://discord.com/channels/1039810916625162260/1039819988296552510
     - icon: fontawesome/brands/github
-      link: https://github.com/openfabr/cdf
+      link: https://github.com/openfabr/terraform-provider-cdk-docs
   analytics:
-    provider: google
-    property: G-J095VMTQH7
+    #provider: google
+    #property: G-J095VMTQH7
 plugins:
   - search
   - minify:
@@ -72,5 +72,5 @@ markdown_extensions:
   - pymdownx.superfences
 
 # Page tree
-nav:
-  - Home: index.html.markdown
+#nav:
+#  - Home: index.html.markdown

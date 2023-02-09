@@ -354,7 +354,7 @@ In addition to [generic `provider` arguments](https://www.terraform.io/docs/conf
 * `skipMetadataApiCheck` - (Optional) Whether to skip the AWS Metadata API check.  Useful for AWS API implementations that do not have a metadata API endpoint.  Setting to `true` prevents Terraform from authenticating via the Metadata API. You may need to use other authentication methods like static credentials, configuration variables, or environment variables.
 * `skipRegionValidation` - (Optional) Whether to skip validating the region. Useful for AWS-like implementations that use their own region names or to bypass the validation for regions that aren't publicly available yet.
 * `skipRequestingAccountId` - (Optional) Whether to skip requesting the account ID.  Useful for AWS API implementations that do not have the IAM, STS API, or metadata API.  When set to `true` and not determined previously, returns an empty account ID when manually constructing ARN attributes with the following:
-  * [`awsApiGatewayDeployment` resource](/docs/providers/aws/r/api_gateway_deployment.html)
+  * [`awsApiGatewayDeployment` resource](./r/api_gateway_deployment.html.markdown)
   * [`awsApiGatewayRestApi` resource](/docs/providers/aws/r/api_gateway_rest_api.html)
   * [`awsApiGatewayStage` resource](/docs/providers/aws/r/api_gateway_stage.html)
   * [`awsApigatewayv2Api` data source](/docs/providers/aws/d/apigatewayv2_api.html)
