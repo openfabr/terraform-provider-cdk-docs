@@ -22,7 +22,7 @@ Source Markdown docs are in each provider repo. The batch converter is run again
 
 - clone a provider repo
 - create a branch on this repo
-- run the converter with the input folder set to `<provider-repo>/website/docs` and output set to the respective folder in this repo.
+- run the converter with the input folder set to `<provider-repo>/website/docs` and output set to the respective folder in this repo `terraform-provider-cdk-docs/website/<provider-name>/<language>`.
 - check and commit the newly added docs
 - when ready merge into main (specific workflow tbd)
 - TODO: GH acion to generate site (using MKdocs)
