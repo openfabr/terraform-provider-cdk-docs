@@ -5,6 +5,8 @@ on:
       - "main"
     paths:
       - "website/**"
+      - ".github/workflows/publish_to_ghpages.yml"
+      - "mkdocs.yml"
 
 permissions:
   contents: read
