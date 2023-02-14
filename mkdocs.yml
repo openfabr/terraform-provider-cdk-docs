@@ -50,8 +50,8 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/openfabr/terraform-provider-cdk-docs
   analytics:
-    #provider: google
-    #property: G-J095VMTQH7
+    provider: google
+    property: G-9RNHD4D9J3
 plugins:
   - search
   - minify:
