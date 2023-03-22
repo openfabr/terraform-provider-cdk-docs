@@ -28,6 +28,10 @@ Source Markdown docs are in each provider repo. The batch converter is run again
 - TODO: GH acion to generate site (using MKdocs)
 - same process for _updating_ docs.
 
+## Local - compline and preview
+
+- run `./perview-website.sh` (requires Docker)
+
 ## License
 
 [LICENSE](./LICENSE)
