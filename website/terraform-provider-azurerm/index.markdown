@@ -1,4 +1,4 @@
-# Terraform Provider AWS
+# Terraform Provider Azure
 
 [TypeScript](typescript/index.markdown)
 

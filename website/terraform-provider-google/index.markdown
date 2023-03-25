@@ -1,4 +1,4 @@
-# Terraform Provider AWS
+# Terraform Provider Google
 
 [TypeScript](typescript/index.markdown)
 
