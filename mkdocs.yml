@@ -18,8 +18,8 @@ theme:
   features:
   - content.code.annotate
   - content.tooltips
-  - navigation.expand
   - navigation.tracking
+  - navigation.indexes
   - search.highlight
   - search.share
   - search.suggest
@@ -70,6 +70,9 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+
+use_directory_urls: false
+
 
 # Page tree
 #nav:
