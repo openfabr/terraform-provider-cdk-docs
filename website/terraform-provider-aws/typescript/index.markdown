@@ -105,8 +105,8 @@ Other settings related to authorization can be configured, such as:
 
 ### Environment Variables
 
-Credentials can be provided by using the `awsAccessKeyId`, `awsSecretAccessKey`, and optionally `awsSessionToken` environment variables.
-The region can be set using the `awsRegion` or `awsDefaultRegion` environment variables.
+Credentials can be provided by using the `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, and optionally `AWS_SESSION_TOKEN` environment variables.
+The region can be set using the `AWS_REGION` or `AWS_DEFAULT_REGION` environment variables.
 
 For example:
 
@@ -127,9 +127,9 @@ $ terraform plan
 
 Other environment variables related to authorization are:
 
-* `awsProfile`
-* `awsConfigFile`
-* `awsSharedCredentialsFile`
+* `AWS_PROFILE`
+* `AWS_CONFIG_FILE`
+* `AWS_SHARED_CREDENTIALS_FILE`
 
 ### Shared Configuration and Credentials Files
 
@@ -138,11 +138,11 @@ By default, these files are located at `$home/Aws/config` and `$home/Aws/credent
 and `"%userprofile%\Aws\config"` and `"%userprofile%\Aws\credentials"` on Windows.
 
 If no named profile is specified, the `default` profile is used.
-Use the `profile` parameter or `awsProfile` environment variable to specify a named profile.
+Use the `profile` parameter or `AWS_PROFILE` environment variable to specify a named profile.
 
 The locations of the shared configuration and credentials files can be configured using either
 the parameters `sharedConfigFiles` and `sharedCredentialsFiles`
-or the environment variables `awsConfigFile` and `awsSharedCredentialsFile`.
+or the environment variables `AWS_CONFIG_FILE` and `AWS_SHARED_CREDENTIALS_FILE`.
 
 For example:
 
@@ -160,9 +160,9 @@ new aws.provider.AwsProvider(this, "aws", {
 
 ### Container Credentials
 
-If you're running Terraform on CodeBuild or ECS and have configured an [IAM Task Role](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html), Terraform can use the container's Task Role. This support is based on the underlying `awsContainerCredentialsRelativeUri` and `awsContainerCredentialsFullUri` environment variables being automatically set by those services or manually for advanced usage.
+If you're running Terraform on CodeBuild or ECS and have configured an [IAM Task Role](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html), Terraform can use the container's Task Role. This support is based on the underlying `AWS_CONTAINER_CREDENTIALS_RELATIVE_URI` and `AWS_CONTAINER_CREDENTIALS_FULL_URI` environment variables being automatically set by those services or manually for advanced usage.
 
-If you're running Terraform on EKS and have configured [IAM Roles for Service Accounts (IRSA)](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html), Terraform can use the pod's role. This support is based on the underlying `awsRoleArn` and `awsWebIdentityTokenFile` environment variables being automatically set by Kubernetes or manually for advanced usage.
+If you're running Terraform on EKS and have configured [IAM Roles for Service Accounts (IRSA)](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html), Terraform can use the pod's role. This support is based on the underlying `AWS_ROLE_ARN` and `AWS_WEB_IDENTITY_TOKEN_FILE` environment variables being automatically set by Kubernetes or manually for advanced usage.
 
 ### Instance profile credentials and region
 
@@ -170,7 +170,7 @@ When the AWS Provider is running on an EC2 instance with an IAM Instance Profile
 the provider can source credentials from the [EC2 Instance Metadata Service](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html#instance-metadata-security-credentials).
 Both IMDS v1 and IMDS v2 are supported.
 
-A custom endpoint for the metadata service can be provided using the `ec2MetadataServiceEndpoint` parameter or the `awsEc2MetadataServiceEndpoint` environment variable.
+A custom endpoint for the metadata service can be provided using the `ec2MetadataServiceEndpoint` parameter or the `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
 
 ### Assuming an IAM Role
 
@@ -247,21 +247,21 @@ credential_process = custom-process --username jdoe
 
 |Setting|Provider|[Environment Variable][envvars]|[Shared Config][config]|
 |-------|--------|-------------------------------|-----------------------|
-|Access Key ID|`accessKey`|`awsAccessKeyId`|`awsAccessKeyId`|
-|Secret Access Key|`secretKey`|`awsSecretAccessKey`|`awsSecretAccessKey`|
-|Session Token|`token`|`awsSessionToken`|`awsSessionToken`|
-|Region|`region`|`awsRegion` or `awsDefaultRegion`|`region`|
-|Custom CA Bundle |`customCaBundle`|`awsCaBundle`|`caBundle`|
-|EC2 IMDS Endpoint |`ec2MetadataServiceEndpoint`|`awsEc2MetadataServiceEndpoint`|N/A|
-|EC2 IMDS Endpoint Mode|`ec2MetadataServiceEndpointMode`|`awsEc2MetadataServiceEndpointMode`|N/A|
-|Disable EC2 IMDS|`skipMetadataApiCheck`|`awsEc2MetadataDisabled`|N/A|
-|HTTP Proxy|`httpProxy`|`httpProxy` or `httpsProxy`|N/A|
-|Max Retries|`maxRetries`|`awsMaxAttempts`|`maxAttempts`|
-|Profile|`profile`|`awsProfile` or `awsDefaultProfile`|N/A|
-|Shared Config Files|`sharedConfigFiles`|`awsConfigFile`|N/A|
-|Shared Credentials Files|`sharedCredentialsFiles` or `sharedCredentialsFile`|`awsSharedCredentialsFile`|N/A|
-|Use DualStack Endpoints|`useDualstackEndpoint`|`awsUseDualstackEndpoint`|`useDualstackEndpoint`|
-|Use FIPS Endpoints|`useFipsEndpoint`|`awsUseFipsEndpoint`|`useFipsEndpoint`|
+|Access Key ID|`accessKey`|`AWS_ACCESS_KEY_ID`|`awsAccessKeyId`|
+|Secret Access Key|`secretKey`|`AWS_SECRET_ACCESS_KEY`|`awsSecretAccessKey`|
+|Session Token|`token`|`AWS_SESSION_TOKEN`|`awsSessionToken`|
+|Region|`region`|`AWS_REGION` or `AWS_DEFAULT_REGION`|`region`|
+|Custom CA Bundle |`customCaBundle`|`AWS_CA_BUNDLE`|`caBundle`|
+|EC2 IMDS Endpoint |`ec2MetadataServiceEndpoint`|`AWS_EC2_METADATA_SERVICE_ENDPOINT`|N/A|
+|EC2 IMDS Endpoint Mode|`ec2MetadataServiceEndpointMode`|`AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE`|N/A|
+|Disable EC2 IMDS|`skipMetadataApiCheck`|`AWS_EC2_METADATA_DISABLED`|N/A|
+|HTTP Proxy|`httpProxy`|`HTTP_PROXY` or `HTTPS_PROXY`|N/A|
+|Max Retries|`maxRetries`|`AWS_MAX_ATTEMPTS`|`maxAttempts`|
+|Profile|`profile`|`AWS_PROFILE` or `AWS_DEFAULT_PROFILE`|N/A|
+|Shared Config Files|`sharedConfigFiles`|`AWS_CONFIG_FILE`|N/A|
+|Shared Credentials Files|`sharedCredentialsFiles` or `sharedCredentialsFile`|`AWS_SHARED_CREDENTIALS_FILE`|N/A|
+|Use DualStack Endpoints|`useDualstackEndpoint`|`AWS_USE_DUALSTACK_ENDPOINT`|`useDualstackEndpoint`|
+|Use FIPS Endpoints|`useFipsEndpoint`|`AWS_USE_FIPS_ENDPOINT`|`useFipsEndpoint`|
 
 ### Assume Role Configuration Reference
 
@@ -272,12 +272,12 @@ See the [assume role documentation](https://docs.aws.amazon.com/cli/latest/userg
 
 |Setting|Provider|[Environment Variable][envvars]|[Shared Config][config]|
 |-------|--------|--------|-----------------------|
-|Role ARN|`roleArn`|`awsRoleArn`|`roleArn`|
+|Role ARN|`roleArn`|`AWS_ROLE_ARN`|`roleArn`|
 |Duration|`duration` or `durationSeconds`|N/A|`durationSeconds`|
 |External ID|`externalId`|N/A|`externalId`|
 |Policy|`policy`|N/A|N/A|
 |Policy ARNs|`policyArns`|N/A|N/A|
-|Session Name|`sessionName`|`awsRoleSessionName`|`roleSessionName`|
+|Session Name|`sessionName`|`AWS_ROLE_SESSION_NAME`|`roleSessionName`|
 |Source Identity|`sourceIdentity`|N/A|N/A|
 |Tags|`tags`|N/A|N/A|
 |Transitive Tag Keys|`transitiveTagKeys`|N/A|N/A|
@@ -295,17 +295,17 @@ See the assume role documentation [section on web identities](https://docs.aws.a
 
 |Setting|Provider|[Environment Variable][envvars]|[Shared Config][config]|
 |-------|--------|--------|-----------------------|
-|Role ARN|`roleArn`|`awsRoleArn`|`roleArn`|
+|Role ARN|`roleArn`|`AWS_ROLE_ARN`|`roleArn`|
 |Web Identity Token|`webIdentityToken`|N/A|N/A|
-|Web Identity Token File|`webIdentityTokenFile`|`awsWebIdentityTokenFile`|`webIdentityTokenFile`|
+|Web Identity Token File|`webIdentityTokenFile`|`AWS_WEB_IDENTITY_TOKEN_FILE`|`webIdentityTokenFile`|
 |Duration|`duration`|N/A|`durationSeconds`|
 |Policy|`policy`|N/A|`policy`|
 |Policy ARNs|`policyArns`|N/A|`policyArns`|
-|Session Name|`sessionName`|`awsRoleSessionName`|`roleSessionName`|
+|Session Name|`sessionName`|`AWS_ROLE_SESSION_NAME`|`roleSessionName`|
 
 ## Custom User-Agent Information
 
-By default, the underlying AWS client used by the Terraform AWS Provider creates requests with User-Agent headers including information about Terraform and AWS SDK for Go versions. To provide additional information in the User-Agent headers, the `tfAppendUserAgent` environment variable can be set and its value will be directly added to HTTP requestsE.g.,
+By default, the underlying AWS client used by the Terraform AWS Provider creates requests with User-Agent headers including information about Terraform and AWS SDK for Go versions. To provide additional information in the User-Agent headers, the `TF_APPEND_USER_AGENT` environment variable can be set and its value will be directly added to HTTP requests. E.g.,
 
 ```sh
 $ export TF_APPEND_USER_AGENT="JenkinsAgent/i-12345678 BuildID/1234 (Optional Extra Information)"
@@ -317,44 +317,44 @@ In addition to [generic `provider` arguments](https://www.terraform.io/docs/conf
 (e.g., `alias` and `version`), the following arguments are supported in the AWS
 `provider` block:
 
-* `accessKey` - (Optional) AWS access key. Can also be set with the `awsAccessKeyId` environment variable, or via a shared credentials file if `profile` is specified. See also `secretKey`.
+* `accessKey` - (Optional) AWS access key. Can also be set with the `AWS_ACCESS_KEY_ID` environment variable, or via a shared credentials file if `profile` is specified. See also `secretKey`.
 * `allowedAccountIds` - (Optional) List of allowed AWS account IDs to prevent you from mistakenly using an incorrect one (and potentially end up destroying a live environment). Conflicts with `forbiddenAccountIds`.
 * `assumeRole` - (Optional) Configuration block for assuming an IAM role. See the [`assumeRole` Configuration Block](#assume_role-configuration-block) section below. Only one `assumeRole` block may be in the configuration.
 * `assumeRoleWithWebIdentity` - (Optional) Configuration block for assuming an IAM role using a web identity. See the [`assumeRoleWithWebIdentity` Configuration Block](#assume_role_with_web_identity-configuration-block) section below. Only one `assumeRoleWithWebIdentity` block may be in the configuration.
 * `customCaBundle` - (Optional) File containing custom root and intermediate certificates.
-  Can also be set using the `awsCaBundle` environment variable.
+  Can also be set using the `AWS_CA_BUNDLE` environment variable.
   Setting `caBundle` in the shared config file is not supported.
 * `defaultTags` - (Optional) Configuration block with resource tag settings to apply across all resources handled by this provider (see the [Terraform multiple provider instances documentation](/docs/configuration/providers.html#alias-multiple-provider-instances) for more information about additional provider configurations). This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys. See the [`defaultTags`](#default_tags-configuration-block) Configuration Block section below for example usage and available arguments. This functionality is supported in all resources that implement `tags`, with the exception of the `awsAutoscalingGroup` resource.
-* `ec2MetadataServiceEndpoint` - (Optional) Address of the EC2 metadata service (IMDS) endpoint to use. Can also be set with the `awsEc2MetadataServiceEndpoint` environment variable.
-* `ec2MetadataServiceEndpointMode` - (Optional) Mode to use in communicating with the metadata service. Valid values are `iPv4` and `iPv6`. Can also be set with the `awsEc2MetadataServiceEndpointMode` environment variable.
+* `ec2MetadataServiceEndpoint` - (Optional) Address of the EC2 metadata service (IMDS) endpoint to use. Can also be set with the `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
+* `ec2MetadataServiceEndpointMode` - (Optional) Mode to use in communicating with the metadata service. Valid values are `iPv4` and `iPv6`. Can also be set with the `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
 * `endpoints` - (Optional) Configuration block for customizing service endpoints. See the [Custom Service Endpoints Guide](/docs/providers/aws/guides/custom-service-endpoints.html) for more information about connecting to alternate AWS endpoints or AWS compatible solutions. See also `useFipsEndpoint`.
 * `forbiddenAccountIds` - (Optional) List of forbidden AWS account IDs to prevent you from mistakenly using the wrong one (and potentially end up destroying a live environment). Conflicts with `allowedAccountIds`.
-* `httpProxy` - (Optional) Address of an HTTP proxy to use when accessing the AWS API. Can also be set using the `httpProxy` or `httpsProxy` environment variables.
+* `httpProxy` - (Optional) Address of an HTTP proxy to use when accessing the AWS API. Can also be set using the `HTTP_PROXY` or `HTTPS_PROXY` environment variables.
 * `ignoreTags` - (Optional) Configuration block with resource tag settings to ignore across all resources handled by this provider (except any individual service tag resources such as `awsEc2Tag`) for situations where external systems are managing certain resource tags. Arguments to the configuration block are described below in the `ignoreTags` Configuration Block section. See the [Terraform multiple provider instances documentation](https://www.terraform.io/docs/configuration/providers.html#alias-multiple-provider-configurations) for more information about additional provider configurations.
 * `insecure` - (Optional) Whether to explicitly allow the provider to perform "insecure" SSL requests. If omitted, the default value is `false`.
 * `maxRetries` - (Optional) Maximum number of times an API call is retried when AWS throttles requests or you experience transient failures.
   The delay between the subsequent API calls increases exponentially.
   If omitted, the default value is `25`.
-  Can also be set using the environment variable `awsMaxAttempts`
+  Can also be set using the environment variable `AWS_MAX_ATTEMPTS`
   and the shared configuration parameter `maxAttempts`.
 * `profile` - (Optional) AWS profile name as set in the shared configuration and credentials files.
-  Can also be set using either the environment variables `awsProfile` or `awsDefaultProfile`.
+  Can also be set using either the environment variables `AWS_PROFILE` or `AWS_DEFAULT_PROFILE`.
 * `region` - (Optional) AWS region where the provider will operate. The region must be set.
-  Can also be set with either the `awsRegion` or `awsDefaultRegion` environment variables,
+  Can also be set with either the `AWS_REGION` or `AWS_DEFAULT_REGION` environment variables,
   or via a shared config file parameter `region` if `profile` is used.
   If credentials are retrieved from the EC2 Instance Metadata Service, the region can also be retrieved from the metadata.
 * `s3ForcePathStyle` - (Optional, **Deprecated**) Whether to enable the request to use path-style addressing, i.e., `https://s3AmazonawsCom/bucket/key`. By default, the S3 client will use virtual hosted bucket addressing, `https://bucketS3AmazonawsCom/key`, when possible. Specific to the Amazon S3 service.
 * `s3UsePathStyle` - (Optional) Whether to enable the request to use path-style addressing, i.e., `https://s3AmazonawsCom/bucket/key`. By default, the S3 client will use virtual hosted bucket addressing, `https://bucketS3AmazonawsCom/key`, when possible. Specific to the Amazon S3 service.
-* `secretKey` - (Optional) AWS secret key. Can also be set with the `awsSecretAccessKey` environment variable, or via a shared configuration and credentials files if `profile` is used. See also `accessKey`.
-* `sharedConfigFiles` - (Optional) List of paths to AWS shared config files. If not set, the default is `[~/Aws/config]`. A single value can also be set with the `awsConfigFile` environment variable.
-* `sharedCredentialsFile` - (Optional, **Deprecated**) Path to the shared credentials file. If not set and a profile is used, the default value is `~/Aws/credentials`. Can also be set with the `awsSharedCredentialsFile` environment variable.
-* `sharedCredentialsFiles` - (Optional) List of paths to the shared credentials file. If not set and a profile is used, the default value is `[~/Aws/credentials]`. A single value can also be set with the `awsSharedCredentialsFile` environment variable.
+* `secretKey` - (Optional) AWS secret key. Can also be set with the `AWS_SECRET_ACCESS_KEY` environment variable, or via a shared configuration and credentials files if `profile` is used. See also `accessKey`.
+* `sharedConfigFiles` - (Optional) List of paths to AWS shared config files. If not set, the default is `[~/Aws/config]`. A single value can also be set with the `AWS_CONFIG_FILE` environment variable.
+* `sharedCredentialsFile` - (Optional, **Deprecated**) Path to the shared credentials file. If not set and a profile is used, the default value is `~/Aws/credentials`. Can also be set with the `AWS_SHARED_CREDENTIALS_FILE` environment variable.
+* `sharedCredentialsFiles` - (Optional) List of paths to the shared credentials file. If not set and a profile is used, the default value is `[~/Aws/credentials]`. A single value can also be set with the `AWS_SHARED_CREDENTIALS_FILE` environment variable.
 * `skipCredentialsValidation` - (Optional) Whether to skip credentials validation via the STS API. This can be useful for testing and for AWS API implementations that do not have STS available.
 * `skipGetEc2Platforms` - (Optional, **Deprecated**) Whether to skip getting the supported EC2 platforms. Can be used when you do not have `ec2:describeAccountAttributes` permissions.
 * `skipMetadataApiCheck` - (Optional) Whether to skip the AWS Metadata API check.  Useful for AWS API implementations that do not have a metadata API endpoint.  Setting to `true` prevents Terraform from authenticating via the Metadata API. You may need to use other authentication methods like static credentials, configuration variables, or environment variables.
 * `skipRegionValidation` - (Optional) Whether to skip validating the region. Useful for AWS-like implementations that use their own region names or to bypass the validation for regions that aren't publicly available yet.
 * `skipRequestingAccountId` - (Optional) Whether to skip requesting the account ID.  Useful for AWS API implementations that do not have the IAM, STS API, or metadata API.  When set to `true` and not determined previously, returns an empty account ID when manually constructing ARN attributes with the following:
-  * [`awsApiGatewayDeployment` resource](./r/api_gateway_deployment.html.markdown)
+  * [`awsApiGatewayDeployment` resource](/docs/providers/aws/r/api_gateway_deployment.html)
   * [`awsApiGatewayRestApi` resource](/docs/providers/aws/r/api_gateway_rest_api.html)
   * [`awsApiGatewayStage` resource](/docs/providers/aws/r/api_gateway_stage.html)
   * [`awsApigatewayv2Api` data source](/docs/providers/aws/d/apigatewayv2_api.html)
@@ -470,9 +470,9 @@ In addition to [generic `provider` arguments](https://www.terraform.io/docs/conf
   * [`awsWafWebAcl` resource](/docs/providers/aws/r/waf_web_acl.html)
   * [`awsWafXssMatchSet` resource](/docs/providers/aws/r/waf_xss_match_set.html)
 * `stsRegion` - (Optional) AWS region for STS. If unset, AWS will use the same region for STS as other non-STS operations.
-* `token` - (Optional) Session token for validating temporary credentials. Typically provided after successful identity federation or Multi-Factor Authentication (MFA) login. With MFA login, this is the session token provided afterward, not the 6 digit MFA code used to get temporary credentials.  Can also be set with the `awsSessionToken` environment variable.
-* `useDualstackEndpoint` - (Optional) Force the provider to resolve endpoints with DualStack capability. Can also be set with the `awsUseDualstackEndpoint` environment variable or in a shared config file (`useDualstackEndpoint`).
-* `useFipsEndpoint` - (Optional) Force the provider to resolve endpoints with FIPS capability. Can also be set with the `awsUseFipsEndpoint` environment variable or in a shared config file (`useFipsEndpoint`).
+* `token` - (Optional) Session token for validating temporary credentials. Typically provided after successful identity federation or Multi-Factor Authentication (MFA) login. With MFA login, this is the session token provided afterward, not the 6 digit MFA code used to get temporary credentials.  Can also be set with the `AWS_SESSION_TOKEN` environment variable.
+* `useDualstackEndpoint` - (Optional) Force the provider to resolve endpoints with DualStack capability. Can also be set with the `AWS_USE_DUALSTACK_ENDPOINT` environment variable or in a shared config file (`useDualstackEndpoint`).
+* `useFipsEndpoint` - (Optional) Force the provider to resolve endpoints with FIPS capability. Can also be set with the `AWS_USE_FIPS_ENDPOINT` environment variable or in a shared config file (`useFipsEndpoint`).
 
 ### assume\_role Configuration Block
 
@@ -502,14 +502,14 @@ The `assumeRoleWithWebIdentity` configuration block supports the following argum
 * `policy` - (Optional) IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
 * `policyArns` - (Optional) Set of Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
 * `roleArn` - (Required) ARN of the IAM Role to assume.
-  Can also be set with the `awsRoleArn` environment variable.
+  Can also be set with the `AWS_ROLE_ARN` environment variable.
 * `sessionName` - (Optional) Session name to use when assuming the role.
-  Can also be set with the `awsRoleSessionName` environment variable.
+  Can also be set with the `AWS_ROLE_SESSION_NAME` environment variable.
 * `webIdentityToken` - (Optional) Value of a web identity token from an OpenID Connect (OIDC) or OAuth provider.
   One of `webIdentityToken` or `webIdentityTokenFile` is required.
 * `webIdentityTokenFile` - (Optional) File containing a web identity token from an OpenID Connect (OIDC) or OAuth provider.
   One of `webIdentityTokenFile` or `webIdentityToken` is required.
-  Can also be set with the `awsWebIdentityTokenFile` environment variable.
+  Can also be set with the `AWS_WEB_IDENTITY_TOKEN_FILE` environment variable.
 
 ### default\_tags Configuration Block
 
